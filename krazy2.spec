@@ -2,7 +2,7 @@
 
 Name:           krazy2
 Version:        2.9
-Release:        %mkrel 0.%svn.1
+Release:        %mkrel 0.%svn.2
 Summary:        Krazy is a tool for checking code against the KDE coding guidelines
 Group:          Graphical desktop/KDE
 License:        GPLv2+
@@ -28,7 +28,6 @@ BuildRequires:  perl-doc
 BuildRequires:  qt4-devel
 BuildRequires:  kdelibs4-devel
 BuildRequires:  kdevplatform4-devel
-Requires:       perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 # Krazy2 uses desktop-file-validate, so this is an actual Requires
 Requires:       desktop-file-utils
 
