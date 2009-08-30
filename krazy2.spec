@@ -1,4 +1,4 @@
-%define svn  974530
+%define svn     999498
 
 Name:           krazy2
 Version:        2.9
