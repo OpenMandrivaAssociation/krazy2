@@ -24,6 +24,7 @@ BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(HTML::Parser)
 BuildRequires:  perl(Tie::IxHash)
 BuildRequires:  perl(XML::LibXML)
+BuildRequires:  perl-doc
 BuildRequires:  qt4-devel
 BuildRequires:  kdelibs4-devel
 BuildRequires:  kdevplatform4-devel
