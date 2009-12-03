@@ -1,9 +1,8 @@
 %define svn     999498
-%define subrel  1
 
 Name:           krazy2
 Version:        2.9
-Release:        %mkrel 0.%svn.2
+Release:        %mkrel 0.%svn.3
 Summary:        Krazy is a tool for checking code against the KDE coding guidelines
 Group:          Graphical desktop/KDE
 License:        GPLv2+
