@@ -1,4 +1,5 @@
 %define svn     999498
+%define subrel  1
 
 Name:           krazy2
 Version:        2.9
@@ -30,6 +31,7 @@ BuildRequires:  kdelibs4-devel
 BuildRequires:  kdevplatform4-devel
 # Krazy2 uses desktop-file-validate, so this is an actual Requires
 Requires:       desktop-file-utils
+Requires:       kdesdk4-core
 
 %description
 Krazy scans KDE source code looking for issues that should be fixed
@@ -45,7 +47,8 @@ good reason.
 %{_mandir}/man1/krazy2ebn.1.*
 %{_mandir}/man1/krazy2xml.1.*
 %{_mandir}/man5/krazyrc.5.*
-%{_bindir}/krazy-licensecheck
+#Already in kdesdk4-core
+%exclude %{_bindir}/krazy-licensecheck
 %{_bindir}/krazy2
 %{_bindir}/krazy2all
 %{_bindir}/krazy2ebn
