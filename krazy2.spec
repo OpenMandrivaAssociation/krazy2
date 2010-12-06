@@ -2,7 +2,7 @@
 
 Name:           krazy2
 Version:        2.9
-Release:        %mkrel 0.%svn.3
+Release:        %mkrel 0.%svn.4
 Summary:        Krazy is a tool for checking code against the KDE coding guidelines
 Group:          Graphical desktop/KDE
 License:        GPLv2+
