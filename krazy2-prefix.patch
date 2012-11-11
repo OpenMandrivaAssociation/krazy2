@@ -1,0 +1,53 @@
+diff -U 5 -r cppchecks/checks/dpointercheck/CMakeLists.txt cppchecks/checks/dpointercheck/CMakeLists.txt
+--- cppchecks/checks/dpointercheck/CMakeLists.txt   2009-03-13 09:57:03.000000000 -0400
++++ cppchecks/checks/dpointercheck/CMakeLists.txt   2009-03-22 18:05:47.000000000 -0400
+@@ -12,9 +12,9 @@
+ 
+ add_executable(dpointercheck ${DPointerCheck_SRCS})
+ 
+ target_link_libraries(dpointercheck checkutil cppmodel)
+ if(NOT WIN32)
+-install(TARGETS dpointercheck DESTINATION ${CMAKE_PREFIX_PATH}/lib/krazy2/krazy-extras/c++)
++install(TARGETS dpointercheck DESTINATION ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/krazy2/krazy-extras/c++)
+ else(NOT WIN32)
+ install(TARGETS dpointercheck ${INSTALL_TARGETS_DEFAULT_ARGS})
+ endif(NOT WIN32)
+diff -U 5 -r cppchecks/cplusplus/cppmodel/CMakeLists.txt cppchecks/cplusplus/cppmodel/CMakeLists.txt
+--- cppchecks/cplusplus/cppmodel/CMakeLists.txt 2009-03-19 12:37:12.000000000 -0400
++++ cppchecks/cplusplus/cppmodel/CMakeLists.txt 2009-03-22 18:11:22.000000000 -0400
+@@ -18,9 +18,7 @@
+ add_library(cppmodel SHARED ${cppmodel_SRCS})
+ 
+ target_link_libraries(cppmodel preprocessor cpp_parser ${QT_QTCORE_LIBRARY})
+ set_target_properties(cppmodel PROPERTIES DEFINE_SYMBOL CPLUSPLUSMODEL_BUILD_LIB)
+ 
+-if(WIN32)
+ install(TARGETS cppmodel ${INSTALL_TARGETS_DEFAULT_ARGS})
+-endif(WIN32)
+ 
+diff -U 5 -r cppchecks/cplusplus/parser/CMakeLists.txt cppchecks/cplusplus/parser/CMakeLists.txt
+--- cppchecks/cplusplus/parser/CMakeLists.txt   2009-02-23 17:03:51.000000000 -0500
++++ cppchecks/cplusplus/parser/CMakeLists.txt   2009-03-22 18:11:03.000000000 -0400
+@@ -41,8 +41,6 @@
+ include_directories(${QT_INCLUDES})
+ 
+ add_library(cpp_parser SHARED ${cplusplus_SRCS})
+ set_target_properties(cpp_parser PROPERTIES DEFINE_SYMBOL CPLUSPLUS_BUILD_LIB)
+ 
+-if(WIN32)
+ install(TARGETS cpp_parser ${INSTALL_TARGETS_DEFAULT_ARGS})
+-endif(WIN32)
+diff -U 5 -r cppchecks/cplusplus/preprocessor/CMakeLists.txt cppchecks/cplusplus/preprocessor/CMakeLists.txt
+--- cppchecks/cplusplus/preprocessor/CMakeLists.txt 2009-03-13 09:57:03.000000000 -0400
++++ cppchecks/cplusplus/preprocessor/CMakeLists.txt 2009-03-22 18:11:15.000000000 -0400
+@@ -15,9 +15,7 @@
+ add_library(preprocessor SHARED ${preproc_SRCS})
+ 
+ target_link_libraries(preprocessor cpp_parser ${QT_QTCORE_LIBRARY})
+ set_target_properties(preprocessor PROPERTIES DEFINE_SYMBOL CPLUSPLUSPREPROCESSOR_BUILD_LIB)
+ 
+-if(WIN32)
+ install(TARGETS preprocessor ${INSTALL_TARGETS_DEFAULT_ARGS})
+-endif(WIN32)
+ 
+
