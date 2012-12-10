@@ -1,0 +1,11 @@
+--- krazy2-2.9/cppchecks/cplusplus/cppmodel/typeprettyprinter.cpp.bero	2012-12-06 20:14:56.372723805 +0100
++++ krazy2-2.9/cppchecks/cplusplus/cppmodel/typeprettyprinter.cpp	2012-12-06 20:15:34.400150602 +0100
+@@ -30,7 +30,7 @@ using namespace CppModel;
+ 
+ TypePrettyPrinter::TypePrettyPrinter(Overview const *overview)
+     : m_overview(overview),
+-      m_name(0),
++      m_name(QString::null),
+       m_markArgument(0),
+       m_showArgumentNames(false),
+       m_showReturnTypes(false),

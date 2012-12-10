@@ -1,0 +1,4 @@
+#!/bin/sh
+
+krazy2 --verbose --check license $@
+

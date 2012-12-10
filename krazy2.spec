@@ -2,7 +2,7 @@
 
 Name:           krazy2
 Version:        2.9
-Release:        %mkrel 0.%svn.4
+Release:        0.%svn.4
 Summary:        Krazy is a tool for checking code against the KDE coding guidelines
 Group:          Graphical desktop/KDE
 License:        GPLv2+
@@ -14,7 +14,7 @@ URL:            http://techbase.kde.org/Development/Tutorials/Code_Checking
 Source0:        krazy2-%{version}.%svn.tar.bz2
 Source1:        krazy-licensecheck
 Patch0:         krazy2-prefix.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
+Patch1:		krazy2-compile.patch
 
 # krazy-licensecheck moved from kdesdk to here in 4.2.0
 Conflicts:      kdesdk < 4.2.0
@@ -25,6 +25,7 @@ BuildRequires:  perl(HTML::Parser)
 BuildRequires:  perl(Tie::IxHash)
 BuildRequires:  perl(XML::LibXML)
 BuildRequires:  perl-doc
+BuildRequires:	perl-devel
 BuildRequires:  qt4-devel
 BuildRequires:  kdelibs4-devel
 BuildRequires:  kdevplatform4-devel
@@ -46,8 +47,6 @@ good reason.
 %{_mandir}/man1/krazy2ebn.1.*
 %{_mandir}/man1/krazy2xml.1.*
 %{_mandir}/man5/krazyrc.5.*
-#Already in kdesdk4-core
-%exclude %{_bindir}/krazy-licensecheck
 %{_bindir}/krazy2
 %{_bindir}/krazy2all
 %{_bindir}/krazy2ebn
@@ -67,7 +66,7 @@ good reason.
 %prep
 %setup -q
 %patch0
-
+%patch1 -p1 -b .compile~
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -132,6 +131,28 @@ find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
 # chmod -R ug+w %{buildroot}%{_bindir}
 # chmod -R ug+w %{buildroot}%{_libdir}
 
+#Already in kdesdk4-core
+rm -f %buildroot%{_bindir}/krazy-licensecheck
 
-%clean
-rm -rf %{buildroot}
+%changelog
+* Thu Dec 03 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 2.9-0.999498.3mdv2010.1
++ Revision: 472803
+- do not use subrel on cooker
+- forward port commits 472795 and 472796
+
+* Sun Aug 30 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 2.9-0.974530.2mdv2010.0
++ Revision: 422735
+- Fix Requires
+
+* Sun Aug 30 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 2.9-0.974530.1mdv2010.0
++ Revision: 422724
+- Fix BuildRequires
+- Fix release
+- Fix Group
+- sync with fedora
+
+* Sat Jun 06 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.0-0.974530.1mdv2010.0
++ Revision: 383239
+- import krazy2
+
+
