@@ -6,7 +6,7 @@ Release:        0.%svn.4
 Summary:        Krazy is a tool for checking code against the KDE coding guidelines
 Group:          Graphical desktop/KDE
 License:        GPLv2+
-URL:            http://techbase.kde.org/Development/Tutorials/Code_Checking
+URL:            https://techbase.kde.org/Development/Tutorials/Code_Checking
 # The source for this package was pulled from upstream's vcs.  Use the
 # following commands to generate the tarball:
 #  svn export -r 999498 svn://anonsvn.kde.org/home/kde/trunk/quality/krazy2 krazy2-2.8
